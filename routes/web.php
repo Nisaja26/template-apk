@@ -2,9 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/template', function () {
+    return view('template');
 });
 
-//route resource
-Route::resource('/posts', \App\Http\Controllers\PostController::class);
+Route::get('/', function () {
+    return view('admin.layouts.wrapper');
+});
