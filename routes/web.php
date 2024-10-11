@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminUsercontroller;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/template', function () {
@@ -7,19 +8,17 @@ Route::get('/template', function () {
 });
 
 Route::get('/', function () {
-    return view('admin.layouts.wrapper');
-});
-
-Route::get('/user', function () {
-    $data = [
-        'content' => 'admin.user.index' // perbaiki tanda panah menjadi =>
-    ];
+        $data = [
+         'content' => 'admin.dashboard.index'
+        ];
     return view('admin.layouts.wrapper', $data);
 });
 
+Route::resource('/user', AdminUsercontroller ::class);
+
 Route::get('/post', function () {
     $data = [
-        'content' => 'admin.post.index' // perbaiki tanda panah menjadi =>
+        'content' => 'admin.post.index' 
     ];
     return view('admin.layouts.wrapper', $data);
 });
